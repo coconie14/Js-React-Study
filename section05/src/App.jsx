@@ -1,28 +1,28 @@
 import "./App.css"
-import Header from "./components/Header.jsx"
-import Main from "./components/Main.jsx";
-import Footer from "./components/Footer.jsx";
-import Button from "./components/Button.jsx";
+import { useState } from "react";
 
 
 
 function App() {
-
-  const buttonProps = {
-    text : "메일",
-    color : "red",
-    a: 1, 
-    b: 2,
-    c: 3,
-  }
- 
+  const [count, setCount] = useState(0);//두개의 값을 담은 배열을 반환해준다. 하나는 현재 상태를 담은 값과 변화시킬 상태 변화 함수. 
+  const [light, setLight] = useState("OFF");
+  console.log(count);
   return (
     <>
-      <Button {...buttonProps}/>
-      <Button text={"카페"}/>
-      <Button text={"블로그"}>
-          <div>자식 요소</div>
-        </Button>
+    <div>
+      <h1>{light}</h1>
+      <button onClick={() => {
+        setLight(light ==='ON' ? "OFF" : "ON")
+      }}>{light ==="ON" ? "끄기" : "켜기"} </button>
+    </div>
+    <div>
+      <h1>{count}</h1>
+      <button onClick={()=>{
+        setCount(count + 1)
+      }
+      }>+</button>
+    </div>
+      
     </>
   );
 }
