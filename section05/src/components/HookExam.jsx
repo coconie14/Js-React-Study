@@ -20,4 +20,3 @@ const HookExam = ( ) => {
 };
 
 export default HookExam;
-ㄱ
